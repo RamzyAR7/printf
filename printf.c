@@ -25,7 +25,7 @@ int _printf(const char *format, ...)
 	};
 
 	if (!format)
-		return (0);
+		return (-1);
 	va_start(args, format);
 	result = copy((char *)format, result);
 	while (before != after || after == 0)
