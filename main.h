@@ -28,6 +28,8 @@ char *print_string(va_list args);
 char *print_percent(va_list args);
 char *print_character(va_list args);
 char *print_integer(va_list args);
+char *print_binary(va_list args);
 char *print_rec(int num, char *p);
 char *get_value(char *str, types t[], va_list args, int *nul_c);
+char *intToBin(int num);
 #endif
