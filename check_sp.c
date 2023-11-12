@@ -23,6 +23,11 @@ char *print_character(va_list args)
 	char *c = (char *)malloc(2);
 	int asci = va_arg(args, int);
 
+	if (!c)
+	{
+		free(c);
+		return (NULL);
+	}
 	c[0] = (char)asci;
 	c[1] = '\0';
 	return (c);
@@ -38,6 +43,11 @@ char *print_percent(va_list args)
 	char *p = (char *)args;
 
 	p = (char *)malloc(2);
+	if (!p)
+	{
+		free(c);
+		return (NULL);
+	}
 	p[0] = '%';
 	p[1] = '\0';
 	return (p);
