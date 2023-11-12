@@ -81,7 +81,6 @@ char *print_integer(va_list args)
 	{
 		*p = '-';
 		p++;
-		num = -num;
 	}
 
 	p = print_rec(num, p);
@@ -100,6 +99,9 @@ char *print_rec(int num, char *p)
 {
 	if (num / 10)
 		p = print_rec(num / 10, p);
-	*p = (num % 10) + '0';
+	if (num % 10 < 0)
+		*p = -(num % 10) + '0';
+	else
+		*p = (num % 10) + '0';
 	return (p + 1);
 }
