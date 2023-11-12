@@ -38,9 +38,14 @@ char *copy(char *str, char *copyTo)
 	free(copyTo);
 	if (!str)
 		return (NULL);
-
-	for (i = 0; str[i]; i++)
-		copy[i] = str[i];
+	else if (!str[1])
+	{
+		copy[0] = str[0];
+		copy[1] = '\0';
+	}
+	else
+		for (i = 0; str[i]; i++)
+			copy[i] = str[i];
 	return (copy);
 }
 /**
