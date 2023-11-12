@@ -24,6 +24,8 @@ int _printf(const char *format, ...)
 		{'d', print_integer},
 		{'i', print_integer},
 		{'b', print_binary},
+		{'u', print_Uinteger},
+		{'o', print_octa},
 		{'X', print_hexa_upper},
 		{'x', print_hexa_lower},
 		{'\0', NULL}
