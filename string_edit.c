@@ -14,6 +14,13 @@ char *change_sp(char *s_input, int before, int after, char *var, int var_l)
 	int i;
 	char *str = (char *)malloc(len);
 
+	if (!str)
+	{
+		free(str);
+		exit(1);
+		return (NULL);
+	}
+
 	for (i = 0; i < len; i++)
 	{
 		if (i <= before)
