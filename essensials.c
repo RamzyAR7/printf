@@ -31,6 +31,7 @@ char *copy(char *str, char *copyTo)
 	if (!copy)
 	{
 		free(copy);
+		free(copyTo);
 		return (NULL);
 	}
 	free(copyTo);
