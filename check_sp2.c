@@ -19,7 +19,7 @@ char *print_binary(va_list args)
  *
  * Return: pointer to the binary value
  */
-char *intToBin(int num)
+char *intToBin(unsigned int num)
 {
 	char *bNum = malloc(32);
 	char temp[32];
