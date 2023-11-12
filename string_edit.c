@@ -105,7 +105,7 @@ char *get_value(char *str, types t[], va_list args)
 	{
 		for (j = 0; t[j].type; j++)
 		{
-			if (str[i] == t[j].type)
+			if (str[i] == t[j].type && i)
 				return (t[j].func(args));
 		}
 	}
