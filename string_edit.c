@@ -47,11 +47,12 @@ char *change_sp(char *s_input, int before, int after, char *var, int var_l)
  * @t: array of specifiers
  * @before: pointer to the index of the first character of the specifier
  * @after: pointer to the index of the last character of the specifier
+ * @nul_c: pointer to the null counter
  * @args: arguments list
  * Return: pointer to the specifier
  */
 char *before_after(char *str, int start, types t[], int *before,
-		    int *after, va_list args)
+				   int *after, int *nul_c, va_list args)
 {
 	int i;
 	char *p = NULL;
@@ -62,7 +63,7 @@ char *before_after(char *str, int start, types t[], int *before,
 		{
 			*before = i - 1;
 			*after = i + sp_true(str + i, t) + 1;
-			p = get_value(str + i, t, args);
+			p = get_value(str + i, t, args, nul_c);
 			return (p);
 		}
 	}
@@ -95,9 +96,10 @@ int sp_true(char *str, types t[])
  * @str: input string
  * @t: array of specifiers
  * @args: arguments list
+ * @nul_c: pointer to the null counter
  * Return: pointer to the value of the specifier
  */
-char *get_value(char *str, types t[], va_list args)
+char *get_value(char *str, types t[], va_list args, int *nul_c)
 {
 	int i, j;
 
@@ -106,7 +108,13 @@ char *get_value(char *str, types t[], va_list args)
 		for (j = 0; t[j].type; j++)
 		{
 			if (str[i] == t[j].type && i)
-				return (t[j].func(args));
+			{
+				char *p = t[j].func(args);
+
+				if (str[i] == 'c' && !p[0])
+					*nul_c += 1;
+				return (p);
+			}
 		}
 	}
 	return (NULL);

@@ -22,12 +22,12 @@ char *copy(char *str, char *copyTo);
 void print(char *str);
 char *change_sp(char *s_input, int before, int after, char *var, int var_l);
 char *before_after(char *str, int start, types t[],
-int *before, int *after, va_list args);
+				   int *before, int *after, int *nul_c, va_list args);
 int sp_true(char *str, types t[]);
 char *print_string(va_list args);
 char *print_percent(va_list args);
 char *print_character(va_list args);
 char *print_integer(va_list args);
 char *print_rec(int num, char *p);
-char *get_value(char *str, types t[], va_list args);
+char *get_value(char *str, types t[], va_list args, int *nul_c);
 #endif

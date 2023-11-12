@@ -10,9 +10,10 @@ int _printf(const char *format, ...)
 {
 	char *result = NULL;
 	char *current_spicifyer = NULL;
-	int before = 0, after = 0, start = 0, len_res = 0;
+	int before = 0, after = 0, start = 0, len_res = 0, null_char = 0;
 	int *b = &before;
 	int *f = &after;
+	int *nul_c = &null_char;
 	va_list args;
 
 	types t[] = {
@@ -32,7 +33,7 @@ int _printf(const char *format, ...)
 	result = copy((char *)format, result);
 	while (before != after || after == 0)
 	{
-		current_spicifyer = copy(before_after(result, start, t, b, f, args),
+		current_spicifyer = copy(before_after(result, start, t, b, f, nul_c, args),
 								 current_spicifyer);
 		if (before != after || after == 0)
 			result = change_sp(result, before, after, current_spicifyer,
@@ -40,7 +41,7 @@ int _printf(const char *format, ...)
 		start = after - 1;
 	}
 	print(result);
-	len_res = length(result);
+	len_res = length(result) + null_char;
 	free(result);
 	return (len_res);
 }
