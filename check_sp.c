@@ -26,6 +26,7 @@ char *print_character(va_list args)
 	if (!c)
 	{
 		free(c);
+		exit(1);
 		return (NULL);
 	}
 	c[0] = (char)asci;
@@ -45,7 +46,8 @@ char *print_percent(va_list args)
 	p = (char *)malloc(2);
 	if (!p)
 	{
-		free(c);
+		free(p);
+		exit(1);
 		return (NULL);
 	}
 	p[0] = '%';
