@@ -28,6 +28,11 @@ char *copy(char *str, char *copyTo)
 	int len = length(str);
 	char *copy = (char *)malloc(len);
 
+	if (!copy)
+	{
+		free(copy);
+		return (NULL);
+	}
 	free(copyTo);
 	if (!str)
 		return (NULL);
