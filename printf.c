@@ -11,9 +11,7 @@ int _printf(const char *format, ...)
 	char *result = NULL;
 	char *current_spicifyer = NULL;
 	int before = 0, after = 0, start = 0, len_res = 0, null_char = 0;
-	int *b = &before;
-	int *f = &after;
-	int *nul_c = &null_char;
+	int *b = &before, *f = &after, *nul_c = &null_char;
 	va_list args;
 
 	types t[] = {
@@ -31,7 +29,6 @@ int _printf(const char *format, ...)
 		{'\0', NULL}
 
 	};
-
 	if (!format || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
 	va_start(args, format);
