@@ -56,3 +56,48 @@ char *print_percent(va_list args)
 	p[1] = '\0';
 	return (p);
 }
+/**
+ * print_integer - Converts an integer to a string using recursion
+ * @args: Variadic arguments list, expecting an integer to be printed
+ *
+ * Return: Pointer to a dynamically allocated string representing the integer
+ */
+char *print_integer(va_list args)
+{
+	int num = va_arg(args, int);
+	char *buffer = malloc(12);
+	char *p = buffer;
+
+	if (!buffer)
+	{
+		free(buffer);
+		exit(1);
+		return (NULL);
+	}
+
+	if (num < 0)
+	{
+		*p = '-';
+		p++;
+		num = -num;
+	}
+
+	p = print_rec(num, p);
+	*p = '\0';
+
+	return (buffer);
+}
+/**
+ * print_rec - prints an integer recursively
+ * @num: integer to print
+ * @p: pointer to string
+ *
+ * Return: pointer to string
+ */
+char *print_rec(int num, char *p)
+{
+	if (num / 10)
+		p = print_rec(num / 10, p);
+	*p = (num % 10) + '0';
+	return (p + 1);
+}
