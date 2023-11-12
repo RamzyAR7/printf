@@ -23,8 +23,7 @@ This project involves creating a custom `printf` function in C. Our implementati
 
 The code is compiled with the following command:
 
-## Developers
+## Developeres
 
 - [@Ahmed Ramzy](https://www.github.com/RamzyAR7)
 - [@Ashraf Atef](https://www.github.com/Ashraf-Atef1)
-
