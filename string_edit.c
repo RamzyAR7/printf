@@ -84,7 +84,7 @@ int sp_true(char *str, types t[])
 	{
 		for (j = 0; t[j].type; j++)
 		{
-			if (str[i] == t[j].type)
+			if (str[i] == t[j].type && i)
 				return (i);
 		}
 	}
