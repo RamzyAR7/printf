@@ -35,7 +35,6 @@ int _printf(const char *format, ...)
 		if (before != after || after == 0)
 			result = change_sp(result, before, after, current_spicifyer,
 							   length(current_spicifyer));
-		printf("\n");
 		start = after;
 	}
 	print(result);
