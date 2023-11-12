@@ -46,6 +46,7 @@ char *copy(char *str, char *copyTo)
 	else
 		for (i = 0; str[i]; i++)
 			copy[i] = str[i];
+	copy[i] = str[i];
 	return (copy);
 }
 /**
