@@ -10,9 +10,6 @@ char *print_string(va_list args)
 {
 	char *p = va_arg(args, char *);
 
-	if (!p[0])
-		p = NULL;
-
 	return (p);
 }
 /**
