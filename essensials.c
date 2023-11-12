@@ -25,7 +25,7 @@ int length(char *str)
 char *copy(char *str, char *copyTo)
 {
 	int i = 0;
-	int len = length(str);
+	int len = length(str) + 1;
 	char *copy = (char *)malloc(len);
 
 	if (!copy)
