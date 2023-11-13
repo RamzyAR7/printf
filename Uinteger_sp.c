@@ -36,7 +36,7 @@ char *print_Uinteger(va_list args, char *flags)
  */
 void Uint_noFlags(unsigned int num, char *p)
 {
-	p = print_rec(num, p);
+	p = print_recU(num, p);
 	*p = '\0';
 }
 
