@@ -45,4 +45,6 @@ void ulong_to_hexa(unsigned long value_p, char *buffer_p);
 char *getFlag(char *str, int steps);
 char *choose_flag(char *str, char *flags);
 char *flag_plus(char *str);
+char *flag_hash(char *str);
+char *flag_space(char *str);
 #endif
