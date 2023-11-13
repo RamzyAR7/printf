@@ -27,6 +27,7 @@ int _printf(const char *format, ...)
 		{'X', print_hexa_upper},
 		{'x', print_hexa_lower},
 		{'S', print_stringS},
+		{'p', print_pointer},
 		{'\0', NULL}
 
 	};

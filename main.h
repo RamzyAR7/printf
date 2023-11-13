@@ -40,4 +40,6 @@ char *intToHexa(unsigned int num, char format);
 char *get_value(char *str, types t[], va_list args, int *nul_c);
 char *intToBin(unsigned int num);
 char *print_stringS(va_list args);
+char *print_pointer(va_list args);
+void ulong_to_hexa(unsigned long value_p, char *buffer_p);
 #endif
