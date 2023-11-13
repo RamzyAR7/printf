@@ -17,6 +17,7 @@ typedef struct types
 } types;
 
 int _printf(const char *format, ...);
+int check_valid_format(const char *format);
 int length(char *str);
 char *copy(char *str, char *copyTo);
 char *change_sp(char *s_input, int before, int after, char *var, int var_l);

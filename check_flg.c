@@ -17,15 +17,18 @@ char *choose_flag(char *str, char *flags, char sp_letter)
 		switch (flags[i])
 		{
 		case '+':
-			p = flag_plus(p);
+			if (flags[i] == 'd' || flags[i] == 'i')
+				p = flag_plus(p);
 			continue;
 			break;
 		case '#':
-			p = flag_hash(p);
+			if (flags[i] == 'x' || flags[i] == 'X')
+				p = flag_hash(p);
 			continue;
 			break;
 		case ' ':
-			p = flag_space(p);
+			if (flags[i] == '\0')
+				p = flag_space(p);
 			continue;
 			break;
 
