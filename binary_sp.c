@@ -58,12 +58,11 @@ char *intToBin(unsigned int num)
 	bNum[j] = '\0';
 	return (bNum);
 }
-
 /**
- * intToOct - convert int as a octa number
- * @num: the integar number
+ * intToBinL - convert unsigned long int to binary
+ * @num: the unsigned long int number
  *
- * Return: pointer to the octa value
+ * Return: pointer to the binary value
  */
 char *intToBinL(unsigned long int num)
 {
@@ -97,10 +96,10 @@ char *intToBinL(unsigned long int num)
 	return (bNum);
 }
 /**
- * intToOct - convert int as a octa number
- * @num: the integar number
+ * intToBinS - convert int as a binary number
+ * @num: the integer number
  *
- * Return: pointer to the octa value
+ * Return: pointer to the binary value
  */
 char *intToBinS(unsigned short int num)
 {
@@ -133,7 +132,6 @@ char *intToBinS(unsigned short int num)
 	bNum[j] = '\0';
 	return (bNum);
 }
-
 /**
  * binary_flags_handle - handles binary conversion flags
  * @args: list of arguments
