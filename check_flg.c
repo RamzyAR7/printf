@@ -34,7 +34,9 @@ char *choose_flag(char *str, char *flags)
  */
 char *flag_plus(char *str)
 {
-	if (str[0] != '-' && str[0] != '+')
+	char *p = NULL;
+
+	if (str[0] != '-' && str[0] != '+' && str[0])
 	{
 		int i = 0;
 		char *p = (char *)malloc(length(str) + 1);
@@ -53,4 +55,5 @@ char *flag_plus(char *str)
 		p[i + 1] = str[i];
 		return (p);
 	}
+	return (p);
 }
