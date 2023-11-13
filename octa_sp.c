@@ -60,7 +60,7 @@ char *intToOct(unsigned int num)
 }
 
 /**
- * intToOct - convert int as a octa number
+ * intToOctL - convert int as a octa number
  * @num: the integar number
  *
  * Return: pointer to the octa value
@@ -97,7 +97,7 @@ char *intToOctL(unsigned long int num)
 	return (ONum);
 }
 /**
- * intToOct - convert int as a octa number
+ * intToOctS - convert int as a octa number
  * @num: the integar number
  *
  * Return: pointer to the octa value
@@ -133,6 +133,14 @@ char *intToOctS(unsigned short int num)
 	ONum[j] = '\0';
 	return (ONum);
 }
+/**
+ * octa_flags_handle - handles the flags for octal conversion
+ * @args: the list of arguments
+ * @p: the buffer to store the result
+ * @flags: the flags to apply
+ *
+ * Return: the formatted string
+ */
 char *octa_flags_handle(va_list args, char *p, char *flags)
 {
 	int i = 0;
