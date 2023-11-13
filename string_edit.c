@@ -123,11 +123,23 @@ char *get_value(char *str, types t[], va_list args, int *nul_c)
 	return (NULL);
 }
 
+/**
+ * getFlag - extract flags from text
+ * @str: string to extract flags from
+ * @steps: number of flags
+ * Return: string of the flags
+ */
 char *getFlag(char *str, int steps)
 {
 	int i = 0;
 	char *tags = (char *)malloc(steps + 1);
 
+	if (!tags)
+	{
+		free(tags);
+		exit(1);
+		return (NULL);
+	}
 	for (i = 0; i < steps; i++)
 	{
 		tags[i] = str[i];

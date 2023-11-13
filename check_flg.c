@@ -1,5 +1,11 @@
 #include "main.h"
 
+/**
+ * choose_flag - handle flags
+ * @str: string to handle with flags
+ * @flags: string of flags
+ * Return: pointer to character
+ */
 char *choose_flag(char *str, char *flags)
 {
 	int i = 0;
@@ -21,13 +27,24 @@ char *choose_flag(char *str, char *flags)
 	return (p);
 }
 
+/**
+ * flag_plus - handle "+"" flag
+ * @str: string to handle with "+" flag
+ * Return: pointer to character
+ */
 char *flag_plus(char *str)
 {
 	if (str[0] != '-' && str[0] != '+')
 	{
-		char *p = (char *)malloc(length(str) + 1);
 		int i = 0;
+		char *p = (char *)malloc(length(str) + 1);
 
+		if (!p)
+		{
+			free(p);
+			exit(1);
+			return (NULL);
+		}
 		p[0] = '+';
 		for (; str[i]; i++)
 		{
