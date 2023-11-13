@@ -24,8 +24,8 @@ char *print_string(va_list args)
  */
 char *print_character(va_list args)
 {
-	char *c = (char *)malloc(2);
 	int asci = va_arg(args, int);
+	char *c = (char *)malloc(2);
 
 	if (!c)
 	{
