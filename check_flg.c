@@ -23,7 +23,7 @@ char *choose_flag(char *str, char *flags, char sp_letter)
 			break;
 		case '#':
 			if (sp_letter == 'x' || sp_letter == 'X')
-				p = flag_hash(p);
+				p = flag_hash(p, sp_letter);
 			continue;
 			break;
 		case ' ':
@@ -76,14 +76,14 @@ char *flag_plus(char *str)
  * @str: string to handle with "#" flag
  * Return: pointer to character
  */
-char *flag_hash(char *str)
+char *flag_hash(char *str, char type)
 {
 	char *p = str;
 
 	if (str[0] != '0' && str[0])
 	{
 		int i = 0;
-		char *p = (char *)malloc(length(str) + 1);
+		char *p = (char *)malloc(length(str) + 2);
 
 		if (!p)
 		{
@@ -92,11 +92,12 @@ char *flag_hash(char *str)
 			return (NULL);
 		}
 		p[0] = '0';
+		p[1] = type;
 		for (; str[i]; i++)
 		{
-			p[i + 1] = str[i];
+			p[i + 2] = str[i];
 		}
-		p[i + 1] = str[i];
+		p[i + 2] = str[i];
 		free(str);
 		return (p);
 	}
