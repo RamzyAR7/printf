@@ -133,6 +133,15 @@ char *intToBinS(unsigned short int num)
 	bNum[j] = '\0';
 	return (bNum);
 }
+
+/**
+ * binary_flags_handle - handles binary conversion flags
+ * @args: list of arguments
+ * @p: pointer to the buffer
+ * @flags: flags to modify the output
+ *
+ * Return: pointer to the buffer
+ */
 char *binary_flags_handle(va_list args, char *p, char *flags)
 {
 	int i = 0;
