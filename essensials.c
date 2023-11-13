@@ -55,5 +55,8 @@ char *copy(char *str, char *copyTo)
  */
 void print(char *str)
 {
-	write(1, str, length(str));
+	if (length(str))
+		write(1, str, length(str));
+	else
+		write(1, str, 1);
 }
