@@ -45,7 +45,13 @@ char *print_rec(int num, char *p)
 		*p = (num % 10) + '0';
 	return (p + 1);
 }
-
+/**
+ * int_noFlags - prints an integer with no flags
+ * @num: integer to print
+ * @p: pointer to string
+ *
+ * Return: void
+ */
 void int_noFlags(int num, char *p)
 {
 	if (num < 0)
@@ -57,6 +63,14 @@ void int_noFlags(int num, char *p)
 	*p = '\0';
 }
 
+/**
+ * int_flags_handle - handles integer flags
+ * @args: Variadic arguments list, expecting an integer to be printed
+ * @p: pointer to string
+ * @flags: string of flags
+ *
+ * Return: void
+ */
 void int_flags_handle(va_list args, char *p, char *flags)
 {
 	int i = 0;

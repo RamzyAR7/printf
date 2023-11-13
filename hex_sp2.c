@@ -1,5 +1,13 @@
 #include "main.h"
-
+/**
+ * hex_flags_handle - handles the flags for hexadecimal conversion
+ * @args: the list of arguments
+ * @p: the buffer to store the result
+ * @flags: the flags to apply
+ * @type: the type of conversion
+ *
+ * Return: the formatted string
+ */
 char *hex_flags_handle(va_list args, char *p, char *flags, char type)
 {
 	int i = 0;
