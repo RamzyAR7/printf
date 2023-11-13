@@ -28,13 +28,25 @@ char *print_Uinteger(va_list args, char *flags)
 	}
 	return (buffer);
 }
-
+/**
+ * Uint_noFlags - Converts an unsigned integer to a string using recursion
+ * @num: The unsigned integer to be converted
+ * @p: Pointer to a buffer where the string representation
+ *  of the integer will be stored
+ */
 void Uint_noFlags(unsigned int num, char *p)
 {
 	p = print_rec(num, p);
 	*p = '\0';
 }
 
+/**
+ * Uint_flags_handle - Handles flags for unsigned integers
+ * @args: Variadic arguments list, expecting an integer to be printed
+ * @p: Pointer to a buffer where the string representation
+ *  of the integer will be stored
+ * @flags: string of flags
+ */
 void Uint_flags_handle(va_list args, char *p, char *flags)
 {
 	int i = 0;

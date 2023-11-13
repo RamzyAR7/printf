@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_recL - prints an integer recursively
+ * print_recUL - prints an integer recursively
  * @num: integer to print
  * @p: pointer to string
  *
@@ -18,7 +18,7 @@ char *print_recUL(unsigned long int num, char *p)
 	return (p + 1);
 }
 /**
- * print_recS - prints an integer recursively
+ * print_recUS - prints an integer recursively
  * @num: integer to print
  * @p: pointer to string
  *

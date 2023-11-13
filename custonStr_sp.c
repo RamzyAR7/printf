@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * print_stringS - prints a custom conversion string
  * @args: arguments list
@@ -35,21 +34,15 @@ char *print_stringS(va_list args, char *flags)
 			p = copy(p, NULL);
 			hex[0] = '\\', hex[1] = 'x';
 			if (hexNum[1] == '\0')
-			{
 				hex[2] = '0', hex[3] = hexNum[0];
-			}
 			else
-			{
 				hex[2] = hexNum[0], hex[3] = hexNum[1];
-			}
 			hex[4] = '\0';
 			p = change_sp(p, i - 1, i + 1, hex, 4);
 			free(hexNum), free(hex);
 		}
 	}
 	if (*flags)
-	{
 		p = choose_flag(p, flags, 'S');
-	}
 	return (p);
 }

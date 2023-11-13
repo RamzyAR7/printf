@@ -88,7 +88,7 @@ char *intToHexa(unsigned int num, char format)
 }
 
 /**
- * intToHexa - convert int as a hex
+ * intToHexaL - convert int as a hex
  * @num: the integar number
  * @format: the format specifier
  * Return: pointer to the hex value
@@ -134,7 +134,7 @@ char *intToHexaL(unsigned long int num, char format)
 	return (bNum);
 }
 /**
- * intToHexa - convert int as a hex
+ * intToHexaS - convert int as a hex
  * @num: the integar number
  * @format: the format specifier
  * Return: pointer to the hex value
