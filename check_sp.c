@@ -35,6 +35,8 @@ char *print_character(va_list args)
 	}
 	c[0] = (char)asci;
 	c[1] = '\0';
+	if (!c[0])
+		write(1, c, 1);
 	return (c);
 }
 /**
