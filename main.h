@@ -19,7 +19,6 @@ typedef struct types
 int _printf(const char *format, ...);
 int length(char *str);
 char *copy(char *str, char *copyTo);
-void print(char *str);
 char *change_sp(char *s_input, int before, int after, char *var, int var_l);
 char *before_after(char *str, int start, types t[],
 				   int *before, int *after, int *nul_c, va_list args);

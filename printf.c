@@ -44,7 +44,7 @@ int _printf(const char *format, ...)
 							   length(current_spicifyer));
 		start = after - 1;
 	}
-	print(result);
+	write(1, result, length(result));
 	len_res = length(result) + null_char;
 	free(result);
 	return (len_res);

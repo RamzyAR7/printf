@@ -49,11 +49,3 @@ char *copy(char *str, char *copyTo)
 	copy[i] = str[i];
 	return (copy);
 }
-/**
- * print - Prints a string
- * @str: The string to print
- */
-void print(char *str)
-{
-	write(1, str, length(str));
-}
