@@ -31,7 +31,7 @@ int _printf(const char *format, ...)
 		{'\0', NULL}
 
 	};
-	if (!format || (format[0] == '%' && format[1] == '\0'))
+	if (!format || !check_valid_format(format))
 		return (-1);
 	va_start(args, format);
 	result = copy((char *)format, result);
