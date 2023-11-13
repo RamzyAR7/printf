@@ -61,9 +61,12 @@ char *before_after(char *str, int start, types t[], int *before,
 	{
 		if (str[i] == '%' && sp_true(str + i, t))
 		{
+			int a_len = sp_true(str + i, t);
+
+			*after = i + a_len + 1;
 			*before = i - 1;
-			*after = i + sp_true(str + i, t) + 1;
 			p = get_value(str + i, t, args, nul_c);
+			p = choose_flag(p, getFlag(str + i + 1, a_len - 1));
 			return (p);
 		}
 	}
@@ -118,4 +121,17 @@ char *get_value(char *str, types t[], va_list args, int *nul_c)
 		}
 	}
 	return (NULL);
+}
+
+char *getFlag(char *str, int steps)
+{
+	int i = 0;
+	char *tags = (char *)malloc(steps + 1);
+
+	for (i = 0; i < steps; i++)
+	{
+		tags[i] = str[i];
+	}
+	tags[i] = '\0';
+	return (tags);
 }

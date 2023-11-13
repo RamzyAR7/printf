@@ -42,4 +42,7 @@ char *intToBin(unsigned int num);
 char *print_stringS(va_list args);
 char *print_pointer(va_list args);
 void ulong_to_hexa(unsigned long value_p, char *buffer_p);
+char *getFlag(char *str, int steps);
+char *choose_flag(char *str, char *flags);
+char *flag_plus(char *str);
 #endif
