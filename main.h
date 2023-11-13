@@ -39,4 +39,5 @@ char *intToOct(unsigned int num);
 char *intToHexa(unsigned int num, char format);
 char *get_value(char *str, types t[], va_list args, int *nul_c);
 char *intToBin(unsigned int num);
+char *print_stringS(va_list args);
 #endif

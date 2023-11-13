@@ -90,3 +90,51 @@ char *intToOct(unsigned int num)
 	ONum[j] = '\0';
 	return (ONum);
 }
+/**
+ * print_stringS - prints a custom conversion string
+ * @args: arguments list
+ *
+ * Return: pointer to a custom conversion string
+ */
+char *print_stringS(va_list args)
+{
+	char *p = va_arg(args, char *);
+	int i = 0;
+
+
+	if (!p)
+	{
+		p = "(null)";
+		return (p);
+	}
+	if (!p[0])
+	{
+		p = NULL;
+		return (p);
+	}
+	for (i = 0; p[i]; i++)
+	{
+		if (p[i] < 32 || p[i] >= 127)
+		{
+			char *hexNum = intToHexa(p[i], 'X');
+			char *hex = malloc(5);
+
+			if (!hex)
+			{
+				free(hex);
+				exit(1);
+				return (NULL);
+			}
+			p = copy(p, NULL);
+			hex[0] = '\\';
+			hex[1] = 'x';
+			hex[2] = hexNum[0];
+			hex[3] = hexNum[1] ? hexNum[1] : '0';
+			hex[4] = '\0';
+			p = change_sp(p, i - 1, i + 1, hex, 4);
+			free(hexNum);
+			free(hex);
+		}
+	}
+	return (p);
+}
