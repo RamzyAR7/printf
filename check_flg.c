@@ -34,7 +34,7 @@ char *choose_flag(char *str, char *flags)
  */
 char *flag_plus(char *str)
 {
-	char *p = NULL;
+	char *p = str;
 
 	if (str[0] != '-' && str[0] != '+' && str[0])
 	{
@@ -53,6 +53,7 @@ char *flag_plus(char *str)
 			p[i + 1] = str[i];
 		}
 		p[i + 1] = str[i];
+		free(str);
 		return (p);
 	}
 	return (p);
