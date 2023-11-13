@@ -4,9 +4,10 @@
  * choose_flag - handle flags
  * @str: string to handle with flags
  * @flags: string of flags
+ * @sp_letter: the current spicifyer letter
  * Return: pointer to character
  */
-char *choose_flag(char *str, char *flags)
+char *choose_flag(char *str, char *flags, char sp_letter)
 {
 	int i = 0;
 	char *p = str;
@@ -29,7 +30,8 @@ char *choose_flag(char *str, char *flags)
 			break;
 
 		default:
-			break;
+			if (sp_letter == 'd')
+				break;
 		}
 	}
 	return (p);

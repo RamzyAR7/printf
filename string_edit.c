@@ -56,6 +56,7 @@ char *before_after(char *str, int start, types t[], int *before,
 {
 	int i;
 	char *p = NULL;
+	char sp_letter = -100;
 
 	for (i = start; str[i]; i++)
 	{
@@ -65,8 +66,8 @@ char *before_after(char *str, int start, types t[], int *before,
 
 			*after = i + a_len + 1;
 			*before = i - 1;
-			p = get_value(str + i, t, args, nul_c);
-			p = choose_flag(p, getFlag(str + i + 1, a_len - 1));
+			p = get_value(str + i, t, args, nul_c, &sp_letter,
+						  getFlag(str + i + 1, a_len - 1));
 			return (p);
 		}
 	}
@@ -100,9 +101,12 @@ int sp_true(char *str, types t[])
  * @t: array of specifiers
  * @args: arguments list
  * @nul_c: pointer to the null counter
+ * @sp_letter: letter of the current sp
+ * @flags: string of flags
  * Return: pointer to the value of the specifier
  */
-char *get_value(char *str, types t[], va_list args, int *nul_c)
+char *get_value(char *str, types t[], va_list args,
+				int *nul_c, char *sp_letter, char *flags)
 {
 	int i, j;
 
@@ -112,10 +116,11 @@ char *get_value(char *str, types t[], va_list args, int *nul_c)
 		{
 			if (str[i] == t[j].type && i)
 			{
-				char *p = t[j].func(args);
+				char *p = t[j].func(args, flags);
 
 				if (str[i] == 'c' && !p[0])
 					*nul_c += 1;
+				*sp_letter = t[j].type;
 				return (p);
 			}
 		}

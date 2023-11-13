@@ -27,7 +27,7 @@ void ulong_to_hexa(unsigned long value_p, char *buffer_p)
 /**
  * print_pointer - Creates a string representation of a pointer in hexadecimal.
  * @args: Variable argument list containing the pointer.
- *
+ * @flags: string of flags
  * Return: A string representation of the pointer.
  *
  * Description: Extracts a pointer from the variable argument list and converts
@@ -35,10 +35,10 @@ void ulong_to_hexa(unsigned long value_p, char *buffer_p)
  * buffer, so it should be used or copied
  *  immediately after calling this function.
  */
-char *print_pointer(va_list args)
+char *print_pointer(va_list args, char *flags)
 {
 	static char buffer_p[19];
-	void *ptr = va_arg(args, void *);
+	void *ptr = copy(va_arg(args, char *), NULL);
 
 	if (!ptr)
 	{
@@ -48,6 +48,9 @@ char *print_pointer(va_list args)
 	buffer_p[0] = '0';
 	buffer_p[1] = 'x';
 	ulong_to_hexa((unsigned long)ptr, buffer_p + 2);
-
+	if (*flags)
+	{
+		ptr = choose_flag(ptr, flags, 's');
+	}
 	return (buffer_p);
 }
