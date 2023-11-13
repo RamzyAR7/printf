@@ -163,6 +163,6 @@ char *octa_flags_handle(va_list args, char *p, char *flags)
 	{
 		p = intToOct(va_arg(args, int));
 	}
-	p = copy(choose_flag(p, flags, 'd'), NULL);
+	p = copy(choose_flag(p, flags, 'o'), NULL);
 	return (p);
 }

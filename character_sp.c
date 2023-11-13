@@ -21,7 +21,7 @@ char *print_character(va_list args, char *flags)
 	c[1] = '\0';
 	if (*flags)
 	{
-		c = choose_flag(c, flags, 's');
+		c = choose_flag(c, flags, 'c');
 	}
 	return (c);
 }
@@ -46,7 +46,7 @@ char *print_percent(va_list args, char *flags)
 	p[1] = '\0';
 	if (*flags)
 	{
-		p = choose_flag(p, flags, 's');
+		p = choose_flag(p, flags, '%');
 	}
 	return (p);
 }

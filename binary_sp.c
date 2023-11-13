@@ -162,6 +162,6 @@ char *binary_flags_handle(va_list args, char *p, char *flags)
 	{
 		p = intToBin(va_arg(args, int));
 	}
-	p = copy(choose_flag(p, flags, 'd'), NULL);
+	p = copy(choose_flag(p, flags, 'b'), NULL);
 	return (p);
 }

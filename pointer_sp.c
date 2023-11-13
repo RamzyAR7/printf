@@ -50,7 +50,7 @@ char *print_pointer(va_list args, char *flags)
 	ulong_to_hexa((unsigned long)ptr, buffer_p + 2);
 	if (*flags)
 	{
-		ptr = choose_flag(ptr, flags, 's');
+		ptr = choose_flag(ptr, flags, 'p');
 	}
 	return (buffer_p);
 }

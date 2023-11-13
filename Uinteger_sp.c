@@ -76,5 +76,5 @@ void Uint_flags_handle(va_list args, char *p, char *flags)
 	{
 		Uint_noFlags(va_arg(args, unsigned int), p);
 	}
-	buffer = copy(choose_flag(buffer, flags, 'd'), NULL);
+	buffer = copy(choose_flag(buffer, flags, 'u'), NULL);
 }

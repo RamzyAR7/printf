@@ -30,6 +30,6 @@ char *hex_flags_handle(va_list args, char *p, char *flags, char type)
 	{
 		p = intToHexa(va_arg(args, int), type);
 	}
-	p = copy(choose_flag(p, flags, 'd'), NULL);
+	p = copy(choose_flag(p, flags, type), NULL);
 	return (p);
 }
