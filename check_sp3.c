@@ -36,7 +36,7 @@ char *print_recU(unsigned int num, char *p)
 	{
 		p = print_rec(num / 10, p);
 	}
-		*p = (num % 10) + '0';
+	*p = (num % 10) + '0';
 
 	return (p + 1);
 }
@@ -101,7 +101,6 @@ char *print_stringS(va_list args)
 	char *p = va_arg(args, char *);
 	int i = 0;
 
-
 	if (!p)
 	{
 		p = "(null)";
@@ -116,24 +115,26 @@ char *print_stringS(va_list args)
 	{
 		if (p[i] < 32 || p[i] >= 127)
 		{
-			char *hexNum = intToHexa(p[i], 'X');
-			char *hex = malloc(5);
+			char *hexNum = intToHexa(p[i], 'X'), *hex = malloc(5);
 
 			if (!hex)
 			{
-				free(hex);
-				exit(1);
+				free(hex), exit(1);
 				return (NULL);
 			}
 			p = copy(p, NULL);
-			hex[0] = '\\';
-			hex[1] = 'x';
-			hex[2] = hexNum[0];
-			hex[3] = hexNum[1] ? hexNum[1] : '0';
+			hex[0] = '\\', hex[1] = 'x';
+			if (hexNum[1] == '\0')
+			{
+				hex[2] = '0', hex[3] = hexNum[0];
+			}
+			else
+			{
+				hex[2] = hexNum[0], hex[3] = hexNum[1];
+						}
 			hex[4] = '\0';
 			p = change_sp(p, i - 1, i + 1, hex, 4);
-			free(hexNum);
-			free(hex);
+			free(hexNum), free(hex);
 		}
 	}
 	return (p);
