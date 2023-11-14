@@ -64,12 +64,19 @@ char *before_after(char *str, int start, types t[], int *before,
 		if (str[i] == '%' && sp_true(str + i, t))
 		{
 			int a_len = sp_true(str + i, t);
-			char *flags;
+			char *flags = NULL;
 
-			*after = i + a_len + 1;
-			*before = i - 1;
-			flags = getFlag(str + i + 1, a_len - 1);
-
+			if (a_len > 0)
+			{
+				*after = i + a_len + 1;
+				*before = i - 1;
+				flags = getFlag(str + i + 1, a_len - 1);
+			}
+			else
+			{
+				*after = i - a_len + 1;
+				*before = i;
+			}
 			p = get_value(str + i, t, args, nul_c, &sp_letter,
 						  flags);
 			if (flags)
@@ -90,15 +97,30 @@ char *before_after(char *str, int start, types t[], int *before,
  */
 int sp_true(char *str, types t[])
 {
-	int i, j;
+	int i, j, flag_steps = 0;
+	char flags[] = {'l', 'h', '\0'};
 
 	for (i = 0; str[i]; i++)
 	{
 		for (j = 0; t[j].type; j++)
 		{
 			if (str[i] == t[j].type && i)
+			{
 				return (i);
+			}
 		}
+	}
+	for (i = 1; str[i]; i++)
+	{
+		for (j = 0; flags[j]; j++)
+		{
+			if (str[i] == flags[j])
+			{
+				flag_steps--;
+			}
+		}
+		if (flag_steps != -i)
+			return (flag_steps);
 	}
 	return (0);
 }
