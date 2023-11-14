@@ -32,9 +32,7 @@ char *choose_flag(char *str, char *flags, char sp_letter)
 			continue;
 			break;
 		case '-':
-			if (sp_letter == 'd' || sp_letter == 'i' || sp_letter == 'u' ||
-				sp_letter == 'o' || sp_letter == 'x' || sp_letter == 'X'
-				|| sp_letter == 'b')
+			if (sp_letter == 's' || sp_letter == 'c' || sp_letter == '%')
 				p = flag_minus(p);
 			continue;
 			break;

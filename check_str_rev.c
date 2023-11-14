@@ -40,7 +40,7 @@ char *print_str_rev(va_list args, char *flags)
 	return (p);
 }
 /**
- * print_rot13 - prints a string in rot13
+ * print_Rot13 - prints a string in rot13
  * @args: arguments list
  * @flags: string of flags
  * Return: pointer to string
