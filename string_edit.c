@@ -66,8 +66,13 @@ char *before_after(char *str, int start, types t[], int *before,
 
 			*after = i + a_len + 1;
 			*before = i - 1;
+			char *flags = getFlag(str + i + 1, a_len - 1);
+
 			p = get_value(str + i, t, args, nul_c, &sp_letter,
-						  getFlag(str + i + 1, a_len - 1));
+						  flags);
+
+			free(flags);
+
 			return (p);
 		}
 	}

@@ -28,20 +28,23 @@ int _printf(const char *format, ...)
 		{'p', print_pointer},
 		{'r', print_str_rev},
 		{'R', print_Rot13},
-		{'\0', NULL}
-	};
+		{'\0', NULL}};
 	if (!format || !check_valid_format(format))
 		return (-1);
 	va_start(args, format);
 	result = copy((char *)format, result);
 	while (before != after || after == 0)
 	{
-		current_spicifyer = copy(before_after(result, start, t, b, f, nul_c, args),
-								 current_spicifyer);
+		char *current_spicifyer = before_after(result, start, t, b, f, nul_c, args);
+
 		if (before != after || after == 0)
+		{
+
 			result = change_sp(result, before, after, current_spicifyer,
 							   length(current_spicifyer));
+		}
 		start = after - 1;
+		free(current_spicifyer);
 	}
 	len_res = length(result) + null_char;
 	write(1, result, len_res);

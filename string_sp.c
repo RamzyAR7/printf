@@ -11,9 +11,15 @@ char *print_string(va_list args, char *flags)
 	char *p = copy(va_arg(args, char *), NULL);
 
 	if (!p)
-		p = "(null)";
+	{
+		free(p);
+		return ("(null)");
+	}
 	if (!p[0])
-		p = NULL;
+	{
+		free(p);
+		return (NULL);
+	}
 	if (*flags)
 	{
 		p = choose_flag(p, flags, 's');
