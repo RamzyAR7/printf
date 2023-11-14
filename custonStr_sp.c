@@ -21,7 +21,6 @@ char *print_stringS(va_list args, char *flags)
 		return (p);
 	}
 	for (i = 0; p[i]; i++)
-	{
 		if (p[i] < 32 || p[i] >= 127)
 		{
 			char *hexNum = intToHexa(p[i], 'X'), *hex = malloc(5);
@@ -39,9 +38,11 @@ char *print_stringS(va_list args, char *flags)
 				hex[2] = hexNum[0], hex[3] = hexNum[1];
 			hex[4] = '\0';
 			p = change_sp(p, i - 1, i + 1, hex, 4);
-			free(hexNum), free(hex);
+			if (hexNum)
+				free(hexNum);
+			if (hex)
+				free(hex);
 		}
-	}
 	if (*flags)
 		p = choose_flag(p, flags, 'S');
 	return (p);

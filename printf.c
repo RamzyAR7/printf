@@ -37,10 +37,17 @@ int _printf(const char *format, ...)
 		if (before != after || after == 0)
 			result = change_sp(result, before, after, current_spicifyer,
 							   length(current_spicifyer));
-		start = after - 1, free(current_spicifyer);
+		start = after - 1;
+		if (current_spicifyer)
+			free(current_spicifyer);
 	}
 	len_res = length(result) + null_char;
-	write(1, result, len_res), free(result);
+	write(1, result, len_res);
+	if (result)
+	{
+		free(result);
+	}
+
 	return (len_res);
 }
 

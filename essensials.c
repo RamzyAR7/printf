@@ -35,7 +35,10 @@ char *copy(char *str, char *copyTo)
 		exit(1);
 		return (NULL);
 	}
-	free(copyTo);
+	if (copyTo)
+	{
+		free(copyTo);
+	}
 	if (!str)
 	{
 		free(copy);

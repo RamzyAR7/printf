@@ -37,7 +37,8 @@ char *change_sp(char *s_input, int before, int after, char *var, int var_l)
 		}
 	}
 	str[i] = '\0';
-	free(s_input);
+	if (s_input)
+		free(s_input);
 	return (str);
 }
 /**
@@ -71,8 +72,8 @@ char *before_after(char *str, int start, types t[], int *before,
 
 			p = get_value(str + i, t, args, nul_c, &sp_letter,
 						  flags);
-
-			free(flags);
+			if (flags)
+				free(flags);
 
 			return (p);
 		}

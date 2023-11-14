@@ -32,7 +32,7 @@ char *choose_flag(char *str, char *flags, char sp_letter)
 			continue;
 			break;
 		case '-':
-			if (sp_letter == 's' || sp_letter == 'c' || sp_letter == '%')
+			if (sp_letter == 'd' || sp_letter == 'i')
 				p = flag_minus(p);
 			continue;
 			break;
@@ -75,7 +75,9 @@ char *flag_plus(char *str)
 			p[i + 1] = str[i];
 		}
 		p[i + 1] = str[i];
-		free(str);
+
+		if (str)
+			free(str);
 		return (p);
 	}
 	return (p);
@@ -108,7 +110,10 @@ char *flag_hash(char *str, char type)
 			p[i + 2] = str[i];
 		}
 		p[i + 2] = str[i];
-		free(str);
+
+		if (str)
+			free(str);
+
 		return (p);
 	}
 	return (p);
@@ -139,7 +144,9 @@ char *flag_space(char *str)
 			p[i + 1] = str[i];
 		}
 		p[i + 1] = str[i];
-		free(str);
+
+		if (str)
+			free(str);
 		return (p);
 	}
 	return (p);
@@ -169,7 +176,9 @@ char *flag_minus(char *str)
 			p[i] = str[i];
 		}
 		p[i] = str[i];
-		free(str);
+
+		if (str)
+			free(str);
 		return (p);
 	}
 	return (p);
