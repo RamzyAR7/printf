@@ -25,15 +25,15 @@ int _printf(const char *format, ...)
 							   length(current_spicifyer));
 		start = after - 1;
 		if (current_spicifyer)
-			free(current_spicifyer);
+			free(current_spicifyer), current_spicifyer = NULL;
 	}
 	len_res = length(result) + null_char;
 	write(1, result, len_res);
 	if (result)
 	{
-		free(result);
+		free(result), result = NULL;
 	}
-	free(t);
+	free(t), t = NULL;
 	return (len_res);
 }
 /**
@@ -64,7 +64,7 @@ types *sp_struct()
 
 	if (!t)
 	{
-		free(t);
+		free(t), t = NULL;
 		exit(1);
 		return (NULL);
 	}

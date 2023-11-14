@@ -30,18 +30,18 @@ char *copy(char *str, char *copyTo)
 
 	if (!copy)
 	{
-		free(copy);
-		free(copyTo);
+		free(copy), copy = NULL;
+		free(copyTo), copyTo = NULL;
 		exit(1);
 		return (NULL);
 	}
 	if (copyTo)
 	{
-		free(copyTo);
+		free(copyTo), copyTo = NULL;
 	}
 	if (!str)
 	{
-		free(copy);
+		free(copy), copy = NULL;
 		return (NULL);
 	}
 	else if (!str[1])

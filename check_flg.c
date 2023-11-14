@@ -65,7 +65,7 @@ char *flag_plus(char *str)
 
 		if (!p)
 		{
-			free(p);
+			free(p), p = NULL;
 			exit(1);
 			return (NULL);
 		}
@@ -77,7 +77,7 @@ char *flag_plus(char *str)
 		p[i + 1] = str[i];
 
 		if (str)
-			free(str);
+			free(str), str = NULL;
 		return (p);
 	}
 	return (p);
@@ -99,7 +99,7 @@ char *flag_hash(char *str, char type)
 
 		if (!p)
 		{
-			free(p);
+			free(p), p = NULL;
 			exit(1);
 			return (NULL);
 		}
@@ -112,7 +112,7 @@ char *flag_hash(char *str, char type)
 		p[i + 2] = str[i];
 
 		if (str)
-			free(str);
+			free(str), str = NULL;
 
 		return (p);
 	}
@@ -134,7 +134,7 @@ char *flag_space(char *str)
 
 		if (!p)
 		{
-			free(p);
+			free(p), p = NULL;
 			exit(1);
 			return (NULL);
 		}
@@ -146,7 +146,7 @@ char *flag_space(char *str)
 		p[i + 1] = str[i];
 
 		if (str)
-			free(str);
+			free(str), str = NULL;
 		return (p);
 	}
 	return (p);
@@ -167,7 +167,7 @@ char *flag_minus(char *str)
 
 		if (!p)
 		{
-			free(p);
+			free(p), p = NULL;
 			exit(1);
 			return (NULL);
 		}
@@ -178,7 +178,7 @@ char *flag_minus(char *str)
 		p[i] = str[i];
 
 		if (str)
-			free(str);
+			free(str), str = NULL;
 		return (p);
 	}
 	return (p);

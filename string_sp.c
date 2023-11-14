@@ -17,7 +17,7 @@ char *print_string(va_list args, char *flags)
 	}
 	if (!p[0])
 	{
-		free(p);
+		free(p), p = NULL;
 		return (NULL);
 	}
 	if (*flags)

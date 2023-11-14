@@ -35,7 +35,7 @@ char *intToBin(unsigned int num)
 
 	if (!bNum)
 	{
-		free(bNum);
+		free(bNum), bNum = NULL;
 		exit(1);
 		return (NULL);
 	}
@@ -72,7 +72,7 @@ char *intToBinL(unsigned long int num)
 
 	if (!bNum)
 	{
-		free(bNum);
+		free(bNum), bNum = NULL;
 		exit(1);
 		return (NULL);
 	}
@@ -109,7 +109,7 @@ char *intToBinS(unsigned short int num)
 
 	if (!bNum)
 	{
-		free(bNum);
+		free(bNum), bNum = NULL;
 		exit(1);
 		return (NULL);
 	}

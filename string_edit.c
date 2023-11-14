@@ -16,7 +16,7 @@ char *change_sp(char *s_input, int before, int after, char *var, int var_l)
 
 	if (!str)
 	{
-		free(str);
+		free(str), str = NULL;
 		exit(1);
 		return (NULL);
 	}
@@ -37,8 +37,8 @@ char *change_sp(char *s_input, int before, int after, char *var, int var_l)
 		}
 	}
 	str[i] = '\0';
-	if (s_input)
-		free(s_input);
+	if (s_input != NULL)
+		free(s_input), s_input = NULL;
 	return (str);
 }
 /**
@@ -73,7 +73,7 @@ char *before_after(char *str, int start, types t[], int *before,
 			p = get_value(str + i, t, args, nul_c, &sp_letter,
 						  flags);
 			if (flags)
-				free(flags);
+				free(flags), flags = NULL;
 
 			return (p);
 		}
@@ -148,7 +148,7 @@ char *getFlag(char *str, int steps)
 
 	if (!tags)
 	{
-		free(tags);
+		free(tags), tags = NULL;
 		exit(1);
 		return (NULL);
 	}

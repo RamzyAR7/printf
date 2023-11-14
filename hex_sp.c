@@ -54,7 +54,7 @@ char *intToHexa(unsigned int num, char format)
 
 	if (!bNum)
 	{
-		free(bNum);
+		free(bNum), bNum = NULL;
 		exit(1);
 		return (NULL);
 	}
@@ -101,7 +101,7 @@ char *intToHexaL(unsigned long int num, char format)
 
 	if (!bNum)
 	{
-		free(bNum);
+		free(bNum), bNum = NULL;
 		exit(1);
 		return (NULL);
 	}
@@ -147,7 +147,7 @@ char *intToHexaS(unsigned short int num, char format)
 
 	if (!bNum)
 	{
-		free(bNum);
+		free(bNum), bNum = NULL;
 		exit(1);
 		return (NULL);
 	}

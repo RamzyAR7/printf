@@ -35,7 +35,7 @@ char *intToOct(unsigned int num)
 
 	if (!ONum)
 	{
-		free(ONum);
+		free(ONum), ONum = NULL;
 		exit(1);
 		return (NULL);
 	}
@@ -73,7 +73,7 @@ char *intToOctL(unsigned long int num)
 
 	if (!ONum)
 	{
-		free(ONum);
+		free(ONum), ONum = NULL;
 		exit(1);
 		return (NULL);
 	}
@@ -110,7 +110,7 @@ char *intToOctS(unsigned short int num)
 
 	if (!ONum)
 	{
-		free(ONum);
+		free(ONum), ONum = NULL;
 		exit(1);
 		return (NULL);
 	}

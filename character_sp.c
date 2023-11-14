@@ -13,7 +13,7 @@ char *print_character(va_list args, char *flags)
 
 	if (!c)
 	{
-		free(c);
+		free(c), c = NULL;
 		exit(1);
 		return (NULL);
 	}
@@ -38,7 +38,7 @@ char *print_percent(va_list args, char *flags)
 	p = (char *)malloc(2);
 	if (!p)
 	{
-		free(p);
+		free(p), p = NULL;
 		exit(1);
 		return (NULL);
 	}

@@ -16,7 +16,7 @@ char *flag_zero(char *str)
 		p = (char *)malloc(len);
 		if (!p)
 		{
-			free(p);
+			free(p), p = NULL;
 			exit(1);
 			return (NULL);
 		}

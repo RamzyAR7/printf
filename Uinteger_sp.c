@@ -13,7 +13,7 @@ char *print_Uinteger(va_list args, char *flags)
 
 	if (!buffer)
 	{
-		free(buffer);
+		free(buffer), buffer = NULL;
 		exit(1);
 		return (NULL);
 	}

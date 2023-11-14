@@ -23,7 +23,7 @@ char *print_str_rev(va_list args, char *flags)
 	p = (char *)malloc(k + 1);
 	if (!p)
 	{
-		free(p);
+		free(p), p = NULL;
 		exit(1);
 		return (NULL);
 	}
@@ -63,7 +63,7 @@ char *print_Rot13(va_list args, char *flags)
 	p = (char *)malloc(l + 1);
 	if (!p)
 	{
-		free(p);
+		free(p), p = NULL;
 		exit(1);
 		return (NULL);
 	}

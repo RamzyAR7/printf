@@ -28,7 +28,7 @@ char *print_stringS(va_list args, char *flags)
 
 			if (!hex)
 			{
-				free(hex), exit(1);
+				free(hex), hex = NULL, exit(1);
 				return (NULL);
 			}
 			p = copy(p, NULL);
@@ -39,9 +39,9 @@ char *print_stringS(va_list args, char *flags)
 				hex[2] = hexNum[0], hex[3] = hexNum[1];
 			hex[4] = '\0', p = change_sp(p, i - 1, i + 1, hex, 4);
 			if (hexNum)
-				free(hexNum);
+				free(hexNum), hexNum = NULL;
 			if (hex)
-				free(hex);
+				free(hex), hex = NULL;
 		}
 	}
 	if (*flags)
