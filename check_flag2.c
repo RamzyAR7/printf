@@ -40,8 +40,7 @@ char *flag_zero(char *str)
  */
 char *flag_width(char *str, char *nums, char fuller)
 {
-	int i = 0;
-	int filed_width = 0;
+	int i = 0, filed_width = 0;
 
 	for (i = 0; nums[i] >= '0' && nums[i] <= '9'; i++)
 	{
@@ -60,18 +59,22 @@ char *flag_width(char *str, char *nums, char fuller)
 		int j = 0;
 
 		if (!new_str)
-		{
-			free(new_str);
-			exit(-1);
-			return (NULL);
-		}
+			free(new_str), exit(-1);
 		for (i = 0, j = 0; i < filed_width; i++)
-		{
-			if (filed_width - i <= length(str))
-				new_str[i] = str[j++];
+			if (fuller != '-')
+			{
+				if (filed_width - i <= length(str))
+					new_str[i] = str[j++];
+				else
+					new_str[i] = fuller == '.' || fuller == '-' ? '0' : fuller;
+			}
 			else
-				new_str[i] = fuller == '.' ? '0' : fuller;
-		}
+			{
+				if (i < length(str))
+					new_str[i] = str[j++];
+				else
+					new_str[i] = fuller == '.' || fuller == '-' ? '0' : fuller;
+			}
 		free(str);
 		return (new_str);
 	}

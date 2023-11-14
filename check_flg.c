@@ -39,7 +39,7 @@ char *choose_flag(char *str, char *flags, char sp_letter)
 			if (flags[i] > '0' && flags[i] <= '9' &&
 				(flags[i - 1] <= '0' || flags[i - 1] > '9'))
 			{
-				if (flags[i - 1] == '.' || flags[i - 1] == '0')
+				if (flags[i - 1] == '.' || flags[i - 1] == '0' || flags[i - 1] == '-')
 					p = flag_width(p, flags + i, flags[i - 1]);
 				else
 					p = flag_width(p, flags + i, ' ');
