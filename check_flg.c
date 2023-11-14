@@ -18,33 +18,31 @@ char *choose_flag(char *str, char *flags, char sp_letter)
 		case '+':
 			if (sp_letter == 'd' || sp_letter == 'i')
 				p = flag_plus(p);
-			continue;
 			break;
 		case '#':
 			if (sp_letter == 'x' || sp_letter == 'X' || sp_letter == 'o')
 				p = flag_hash(p, sp_letter);
-			continue;
 			break;
 		case ' ':
 			if (sp_letter == 'd' || sp_letter == 'i')
 				p = flag_space(p);
-			continue;
 			break;
 		case '-':
 			if (sp_letter == 'd' || sp_letter == 'i')
 				p = flag_minus(p);
-			continue;
 			break;
 		default:
 			if (flags[i] > '0' && flags[i] <= '9' &&
 				(flags[i - 1] <= '0' || flags[i - 1] > '9'))
 			{
+				printf("hell\n");
 				if (flags[i - 1] == '.' || flags[i - 1] == '0' || flags[i - 1] == '-')
 					p = flag_width(p, flags + i, flags[i - 1]);
 				else
 					p = flag_width(p, flags + i, ' ');
 			}
-			continue;
+			else if (flags[i] == '0' && flags[i - 1] == '.')
+				p[0] = '\0';
 			break;
 		}
 	return (p);
