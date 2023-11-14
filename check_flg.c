@@ -13,7 +13,6 @@ char *choose_flag(char *str, char *flags, char sp_letter)
 	char *p = str;
 
 	for (i = 0; flags[i]; i++)
-	{
 		switch (flags[i])
 		{
 		case '+':
@@ -49,7 +48,6 @@ char *choose_flag(char *str, char *flags, char sp_letter)
 			}
 			break;
 		}
-	}
 	return (p);
 }
 
