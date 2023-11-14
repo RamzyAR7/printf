@@ -48,7 +48,6 @@ types *sp_struct()
 	{
 		free(t);
 		exit(1);
-		return (NULL);
 	}
 
 	int i = 0;
