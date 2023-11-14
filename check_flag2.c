@@ -29,6 +29,15 @@ char *flag_zero(char *str)
 	}
 	return (p);
 }
+
+/**
+ * flag_width - Adds padding to a string based on a specified field width
+ *
+ * @str: The string to modify
+ * @nums: The field width specifier
+ *
+ * Return: A pointer to the modified string, or NULL if memory allocation fails
+ */
 char *flag_width(char *str, char *nums)
 {
 	int i = 0;
