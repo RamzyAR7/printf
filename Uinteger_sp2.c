@@ -11,7 +11,7 @@ char *print_recU(unsigned int num, char *p)
 {
 	if (num / 10)
 	{
-		p = print_rec(num / 10, p);
+		p = print_recU(num / 10, p);
 	}
 	*p = (num % 10) + '0';
 
@@ -29,7 +29,7 @@ char *print_recUL(unsigned long int num, char *p)
 {
 	if (num / 10)
 	{
-		p = print_rec(num / 10, p);
+		p = print_recUL(num / 10, p);
 	}
 	*p = (num % 10) + '0';
 
@@ -46,7 +46,7 @@ char *print_recUS(unsigned short int num, char *p)
 {
 	if (num / 10)
 	{
-		p = print_rec(num / 10, p);
+		p = print_recUS(num / 10, p);
 	}
 	*p = (num % 10) + '0';
 
