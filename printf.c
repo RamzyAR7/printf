@@ -11,22 +11,8 @@ int _printf(const char *format, ...)
 	int before = 0, after = 0, start = 0, len_res = 0, null_char = 0;
 	int *b = &before, *f = &after, *nul_c = &null_char;
 	va_list args;
-	types t[] = {
-		{'s', print_string},
-		{'c', print_character},
-		{'%', print_percent},
-		{'d', print_integer},
-		{'i', print_integer},
-		{'b', print_binary},
-		{'u', print_Uinteger},
-		{'o', print_octa},
-		{'X', print_hexa_upper},
-		{'x', print_hexa_lower},
-		{'S', print_stringS},
-		{'p', print_pointer},
-		{'r', print_str_rev},
-		{'R', print_Rot13},
-		{'\0', NULL}};
+	types *t = sp_struct();
+
 	if (!format || !check_valid_format(format))
 		return (-1);
 	va_start(args, format), result = copy((char *)format, result);
@@ -47,10 +33,38 @@ int _printf(const char *format, ...)
 	{
 		free(result);
 	}
-
+	free(t);
 	return (len_res);
 }
 
+types *sp_struct()
+{
+	types *t = (types *)malloc(sizeof(types) * 14);
+	int i = 0;
+	types arr[] = {
+		{'s', print_string},
+		{'c', print_character},
+		{'%', print_percent},
+		{'d', print_integer},
+		{'i', print_integer},
+		{'b', print_binary},
+		{'u', print_Uinteger},
+		{'o', print_octa},
+		{'X', print_hexa_upper},
+		{'x', print_hexa_lower},
+		{'S', print_stringS},
+		{'p', print_pointer},
+		{'r', print_str_rev},
+		{'R', print_Rot13},
+		{'\0', NULL}};
+
+	while (i < 14)
+	{
+		t[i] = arr[i];
+		i++;
+	}
+	return (t);
+}
 /**
  * check_valid_format - check if the input is valid
  * @format: format specifiers

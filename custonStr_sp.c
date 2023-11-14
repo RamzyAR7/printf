@@ -37,8 +37,7 @@ char *print_stringS(va_list args, char *flags)
 				hex[2] = '0', hex[3] = hexNum[0];
 			else
 				hex[2] = hexNum[0], hex[3] = hexNum[1];
-			hex[4] = '\0';
-			p = change_sp(p, i - 1, i + 1, hex, 4);
+			hex[4] = '\0', p = change_sp(p, i - 1, i + 1, hex, 4);
 			if (hexNum)
 				free(hexNum);
 			if (hex)
