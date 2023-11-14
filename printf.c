@@ -18,12 +18,15 @@ int _printf(const char *format, ...)
 	va_start(args, format), result = copy((char *)format, result);
 	while (before != after || after == 0)
 	{
-		char *current_spicifyer = before_after(result, start, t, b, f, nul_c, args);
+		char *b_a = before_after(result, start, t, b, f, nul_c, args);
+		char *current_spicifyer = copy(b_a, NULL);
 
 		if (before != after || after == 0)
 			result = change_sp(result, before, after, current_spicifyer,
 							   length(current_spicifyer));
 		start = after - 1;
+		if (b_a)
+			free(b_a), b_a = NULL;
 		if (current_spicifyer)
 			free(current_spicifyer), current_spicifyer = NULL;
 	}
