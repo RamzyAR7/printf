@@ -44,12 +44,6 @@ types *sp_struct()
 {
 	types *t = (types *)malloc(sizeof(types) * 14);
 
-	if (!t)
-	{
-		free(t);
-		exit(1);
-	}
-
 	int i = 0;
 	types arr[] = {
 		{'s', print_string},
@@ -67,6 +61,13 @@ types *sp_struct()
 		{'r', print_str_rev},
 		{'R', print_Rot13},
 		{'\0', NULL}};
+
+	if (!t)
+	{
+		free(t);
+		exit(1);
+		return (NULL);
+	}
 
 	while (i < 14)
 	{
