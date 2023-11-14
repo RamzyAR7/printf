@@ -13,7 +13,6 @@ int _printf(const char *format, ...)
 	int before = 0, after = 0, start = 0, len_res = 0, null_char = 0;
 	int *b = &before, *f = &after, *nul_c = &null_char;
 	va_list args;
-
 	types t[] = {
 
 		{'s', print_string},
@@ -29,8 +28,8 @@ int _printf(const char *format, ...)
 		{'S', print_stringS},
 		{'p', print_pointer},
 		{'r', print_str_rev},
+		{'R', print_rot13},
 		{'\0', NULL}
-
 	};
 	if (!format || !check_valid_format(format))
 		return (-1);
