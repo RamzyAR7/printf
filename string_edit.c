@@ -199,6 +199,7 @@ char *getFlag(char *str, int steps, va_list args)
 			{
 				tags[i++] = num[k];
 			}
+			free(num);
 		}
 		else
 			tags[i] = str[j];
