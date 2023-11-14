@@ -52,6 +52,5 @@ char *print_pointer(va_list args, char *flags)
 	{
 		ptr = choose_flag(ptr, flags, 'p');
 	}
-	printf("pp:%s\n", buffer_p);
 	return (buffer_p);
 }
