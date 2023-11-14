@@ -20,14 +20,14 @@ char *print_str_rev(va_list args, char *flags)
 	{
 		return (NULL);
 	}
-	p = (char *)malloc(length(str) + 1);
+	p = (char *)malloc(k + 1);
 	if (!p)
 	{
 		free(p);
 		exit(1);
 		return (NULL);
 	}
-	for (i = length(str) - 1; i >= 0; i--)
+	for (i = k - 1; i >= 0; i--)
 	{
 		p[j] = str[i];
 		j++;
