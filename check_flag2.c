@@ -29,3 +29,38 @@ char *flag_zero(char *str)
 	}
 	return (p);
 }
+char *flag_width(char *str, char *nums)
+{
+	int i = 0;
+	int filed_width = 0;
+
+	for (i = 0; nums[i] >= '0' && nums[i] <= '9'; i++)
+	{
+		if (filed_width)
+			filed_width *= 10;
+		filed_width += nums[i] - '0';
+	}
+	if (filed_width > length(str))
+	{
+		char *new_str = malloc(filed_width + 1);
+		int j = 0;
+
+		if (!new_str)
+		{
+			free(new_str);
+			exit(-1);
+			return (NULL);
+		}
+		for (i = 0, j = 0; i < filed_width; i++)
+		{
+			if (filed_width - i <= length(str))
+				new_str[i] = str[j++];
+			else
+				new_str[i] = ' ';
+		}
+		free(str);
+		return (new_str);
+	}
+	else
+		return (str);
+}

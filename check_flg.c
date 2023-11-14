@@ -42,7 +42,9 @@ char *choose_flag(char *str, char *flags, char sp_letter)
 			continue;
 			break;
 		default:
-			if (sp_letter == 'd')
+			if (flags[i] >= '0' && flags[i] <= '9' &&
+				(sp_letter == 'd' || sp_letter == 'i'))
+				p = flag_width(p, flags + i);
 				break;
 		}
 	}
