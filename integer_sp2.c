@@ -10,7 +10,7 @@
 char *print_recL(long int num, char *p)
 {
 	if (num / 10)
-		p = print_rec(num / 10, p);
+		p = print_recL(num / 10, p);
 	if (num % 10 < 0)
 		*p = -(num % 10) + '0';
 	else
