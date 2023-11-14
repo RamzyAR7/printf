@@ -43,6 +43,14 @@ int _printf(const char *format, ...)
 types *sp_struct()
 {
 	types *t = (types *)malloc(sizeof(types) * 14);
+
+	if (!t)
+	{
+		free(t);
+		exit(1);
+		return (NULL);
+	}
+
 	int i = 0;
 	types arr[] = {
 		{'s', print_string},
@@ -68,4 +76,3 @@ types *sp_struct()
 	}
 	return (t);
 }
-
