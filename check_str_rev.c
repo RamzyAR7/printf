@@ -9,10 +9,17 @@ char *print_str_rev(va_list args, char *flags)
 {
 	char *str = va_arg(args, char *);
 	char *p = NULL;
-	int i = 0, j = 0;
+	int i = 0, j = 0, k = 0;
+
+	while (str[k])
+	{
+		k++;
+	}
 
 	if (!str)
+	{
 		return (NULL);
+	}
 	p = (char *)malloc(length(str) + 1);
 	if (!p)
 	{
