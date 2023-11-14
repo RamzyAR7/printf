@@ -43,7 +43,7 @@ char *intToBin(unsigned int num);
 char *print_stringS(va_list args, char *flags);
 char *print_pointer(va_list args, char *flags);
 void ulong_to_hexa(unsigned long value_p, char *buffer_p);
-char *getFlag(char *str, int steps);
+char *getFlag(char *str, int steps, va_list args);
 char *choose_flag(char *str, char *flags, char sp_letter);
 char *flag_plus(char *str);
 char *flag_hash(char *str, char type);

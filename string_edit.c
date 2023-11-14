@@ -70,7 +70,7 @@ char *before_after(char *str, int start, types t[], int *before,
 			{
 				*after = i + a_len + 1;
 				*before = i - 1;
-				flags = getFlag(str + i + 1, a_len - 1);
+				flags = getFlag(str + i + 1, a_len - 1, args);
 			}
 			else
 			{
@@ -161,12 +161,14 @@ char *get_value(char *str, types t[], va_list args,
  * getFlag - extract flags from text
  * @str: string to extract flags from
  * @steps: number of flags
+ * @args: arguments list
  * Return: string of the flags
  */
-char *getFlag(char *str, int steps)
+char *getFlag(char *str, int steps, va_list args)
 {
 	int i = 0;
-	char *tags = (char *)malloc(steps + 1);
+	int j = 0;
+	char *tags = (char *)malloc(steps + 20);
 
 	if (!tags)
 	{
@@ -174,9 +176,32 @@ char *getFlag(char *str, int steps)
 		exit(1);
 		return (NULL);
 	}
-	for (i = 0; i < steps; i++)
+	for (i = 0; i < steps; i++, j++)
 	{
-		tags[i] = str[i];
+		if (str[j] == '*')
+		{
+			char *num;
+			char *buffer = malloc(20);
+			char *p = buffer;
+			int k = 0, n = va_arg(args, int);
+
+			if (!buffer)
+			{
+				free(buffer);
+				exit(-1);
+				return (NULL);
+			}
+			print_rec(n, p);
+			*(p + 1) = '\0';
+			num = copy(buffer, NULL);
+			free(buffer);
+			for (k = 0; num[k]; k++)
+			{
+				tags[i++] = num[k];
+			}
+		}
+		else
+			tags[i] = str[j];
 	}
 	tags[i] = '\0';
 	return (tags);
