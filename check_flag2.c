@@ -35,10 +35,10 @@ char *flag_zero(char *str)
  *
  * @str: The string to modify
  * @nums: The field width specifier
- *
+ * @fuller: The filler to fill gabs
  * Return: A pointer to the modified string, or NULL if memory allocation fails
  */
-char *flag_width(char *str, char *nums)
+char *flag_width(char *str, char *nums, char fuller)
 {
 	int i = 0;
 	int filed_width = 0;
@@ -48,6 +48,11 @@ char *flag_width(char *str, char *nums)
 		if (filed_width)
 			filed_width *= 10;
 		filed_width += nums[i] - '0';
+	}
+	if (filed_width == 0 && str[0] == '0' && fuller == '.')
+	{
+		str[0] = '\0';
+		return (str);
 	}
 	if (filed_width > length(str))
 	{
@@ -65,7 +70,7 @@ char *flag_width(char *str, char *nums)
 			if (filed_width - i <= length(str))
 				new_str[i] = str[j++];
 			else
-				new_str[i] = ' ';
+				new_str[i] = fuller == '.' ? '0' : fuller;
 		}
 		free(str);
 		return (new_str);

@@ -35,16 +35,16 @@ char *choose_flag(char *str, char *flags, char sp_letter)
 				p = flag_minus(p);
 			continue;
 			break;
-		case '0':
-			if (sp_letter == 'd' || sp_letter == 'i')
-				p = flag_zero(p);
-			continue;
-			break;
 		default:
-			if (flags[i] >= '0' && flags[i] <= '9')
+			if (flags[i] > '0' && flags[i] <= '9' &&
+				(flags[i - 1] <= '0' || flags[i - 1] > '9'))
 			{
-				p = flag_width(p, flags + i);
+				if (flags[i - 1] == '.' || flags[i - 1] == '0')
+					p = flag_width(p, flags + i, flags[i - 1]);
+				else
+					p = flag_width(p, flags + i, ' ');
 			}
+			continue;
 			break;
 		}
 	return (p);
