@@ -27,7 +27,7 @@ char *choose_flag(char *str, char *flags, char sp_letter)
 			continue;
 			break;
 		case ' ':
-			if (sp_letter == '\0')
+			if (sp_letter == 'd' || sp_letter == 'i')
 				p = flag_space(p);
 			continue;
 			break;
