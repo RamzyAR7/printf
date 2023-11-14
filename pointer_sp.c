@@ -40,11 +40,17 @@ char *print_pointer(va_list args, char *flags)
 	char *buffer_p = malloc(19);
 	void *ptr = va_arg(args, void *);
 
+	if (!buffer_p)
+	{
+		free(buffer_p);
+		exit(1);
+		return (NULL);
+	}
 	if (!ptr)
 	{
-		return ("(nil)");
+		buffer_p = copy("(nil)", buffer_p);
+		return (buffer_p);
 	}
-
 	buffer_p[0] = '0';
 	buffer_p[1] = 'x';
 	ulong_to_hexa((unsigned long)ptr, buffer_p + 2);
