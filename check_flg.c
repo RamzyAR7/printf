@@ -36,6 +36,11 @@ char *choose_flag(char *str, char *flags, char sp_letter)
 				p = flag_minus(p);
 			continue;
 			break;
+		case '0':
+			if (sp_letter == 'd' || sp_letter == 'i')
+				p = flag_zero(p);
+			continue;
+			break;
 		default:
 			if (sp_letter == 'd')
 				break;
@@ -148,7 +153,7 @@ char *flag_minus(char *str)
 {
 	char *p = str;
 
-	if (str[0] != '-' && str[0] != '+' && str[0])
+	if (str[0] != '-' && str[0])
 	{
 		int i = 0;
 		char *p = (char *)malloc(length(str) + 1);
@@ -159,12 +164,11 @@ char *flag_minus(char *str)
 			exit(1);
 			return (NULL);
 		}
-		p[0] = '-';
 		for (; str[i]; i++)
 		{
-			p[i + 1] = str[i];
+			p[i] = str[i];
 		}
-		p[i + 1] = str[i];
+		p[i] = str[i];
 		free(str);
 		return (p);
 	}

@@ -69,4 +69,5 @@ char *intToBinS(unsigned short int num);
 char *print_str_rev(va_list args, char *flags);
 char *print_Rot13(va_list args, char *flags);
 char *flag_minus(char *str);
+char *flag_zero(char *str);
 #endif
