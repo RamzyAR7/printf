@@ -74,6 +74,7 @@ char *flag_plus(char *str)
 /**
  * flag_hash - handle "#" flag
  * @str: string to handle with "#" flag
+ * @type: type of specifier
  * Return: pointer to character
  */
 char *flag_hash(char *str, char type)
