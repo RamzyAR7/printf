@@ -67,5 +67,6 @@ char *binary_flags_handle(va_list args, char *p, char *flags);
 char *intToBinL(unsigned long int num);
 char *intToBinS(unsigned short int num);
 char *print_str_rev(va_list args, char *flags);
-char *print_rot13(va_list args, char *flags);
+char *print_Rot13(va_list args, char *flags);
+char *flag_minus(char *str);
 #endif

@@ -31,7 +31,13 @@ char *choose_flag(char *str, char *flags, char sp_letter)
 				p = flag_space(p);
 			continue;
 			break;
-
+		case '-':
+			if (sp_letter == 'd' || sp_letter == 'i' || sp_letter == 'u' ||
+				sp_letter == 'o' || sp_letter == 'x' || sp_letter == 'X'
+				|| sp_letter == 'b')
+				p = flag_minus(p);
+			continue;
+			break;
 		default:
 			if (sp_letter == 'd')
 				break;
@@ -125,6 +131,37 @@ char *flag_space(char *str)
 			return (NULL);
 		}
 		p[0] = ' ';
+		for (; str[i]; i++)
+		{
+			p[i + 1] = str[i];
+		}
+		p[i + 1] = str[i];
+		free(str);
+		return (p);
+	}
+	return (p);
+}
+/**
+ * flag_minus - handle "-" flag
+ * @str: string to handle with "-" flag
+ * Return: pointer to character
+ */
+char *flag_minus(char *str)
+{
+	char *p = str;
+
+	if (str[0] != '-' && str[0] != '+' && str[0])
+	{
+		int i = 0;
+		char *p = (char *)malloc(length(str) + 1);
+
+		if (!p)
+		{
+			free(p);
+			exit(1);
+			return (NULL);
+		}
+		p[0] = '-';
 		for (; str[i]; i++)
 		{
 			p[i + 1] = str[i];

@@ -45,7 +45,7 @@ char *print_str_rev(va_list args, char *flags)
  * @flags: string of flags
  * Return: pointer to string
  */
-char *print_rot13(va_list args, char *flags)
+char *print_Rot13(va_list args, char *flags)
 {
 	char *str = va_arg(args, char *);
 	char *p = NULL;

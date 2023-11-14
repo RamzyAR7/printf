@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * _printf - Works like printf function
  * @format: format specifiers
@@ -28,7 +27,7 @@ int _printf(const char *format, ...)
 		{'S', print_stringS},
 		{'p', print_pointer},
 		{'r', print_str_rev},
-		{'R', print_rot13},
+		{'R', print_Rot13},
 		{'\0', NULL}
 	};
 	if (!format || !check_valid_format(format))
