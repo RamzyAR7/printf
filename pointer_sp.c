@@ -37,8 +37,8 @@ void ulong_to_hexa(unsigned long value_p, char *buffer_p)
  */
 char *print_pointer(va_list args, char *flags)
 {
-	static char buffer_p[19];
-	void *ptr = copy(va_arg(args, char *), NULL);
+	char *buffer_p = malloc(19);
+	void *ptr = va_arg(args, void *);
 
 	if (!ptr)
 	{
@@ -52,5 +52,6 @@ char *print_pointer(va_list args, char *flags)
 	{
 		ptr = choose_flag(ptr, flags, 'p');
 	}
+	printf("pp:%s\n", buffer_p);
 	return (buffer_p);
 }
