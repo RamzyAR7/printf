@@ -12,8 +12,8 @@ char *print_string(va_list args, char *flags)
 
 	if (!p)
 	{
-		free(p);
-		return ("(null)");
+		p = copy("(null)", p);
+		return (p);
 	}
 	if (!p[0])
 	{
