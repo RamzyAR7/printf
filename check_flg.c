@@ -22,7 +22,7 @@ char *choose_flag(char *str, char *flags, char sp_letter)
 			continue;
 			break;
 		case '#':
-			if (sp_letter == 'x' || sp_letter == 'X')
+			if (sp_letter == 'x' || sp_letter == 'X' || sp_letter == 'o')
 				p = flag_hash(p, sp_letter);
 			continue;
 			break;
@@ -94,7 +94,7 @@ char *flag_hash(char *str, char type)
 
 	if (str[0] != '0' && str[0])
 	{
-		int i = 0;
+		int i = 0, j = 2;
 		char *p = (char *)malloc(length(str) + 2);
 
 		if (!p)
@@ -105,11 +105,13 @@ char *flag_hash(char *str, char type)
 		}
 		p[0] = '0';
 		p[1] = type;
+		if (type == 'o')
+			j--;
 		for (; str[i]; i++)
 		{
-			p[i + 2] = str[i];
+			p[j++] = str[i];
 		}
-		p[i + 2] = str[i];
+		p[j++] = str[i];
 
 		if (str)
 			free(str), str = NULL;
