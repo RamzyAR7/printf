@@ -8,12 +8,10 @@
 int _printf(const char *format, ...)
 {
 	char *result = NULL;
-	char *current_spicifyer = NULL;
 	int before = 0, after = 0, start = 0, len_res = 0, null_char = 0;
 	int *b = &before, *f = &after, *nul_c = &null_char;
 	va_list args;
 	types t[] = {
-
 		{'s', print_string},
 		{'c', print_character},
 		{'%', print_percent},
@@ -31,24 +29,18 @@ int _printf(const char *format, ...)
 		{'\0', NULL}};
 	if (!format || !check_valid_format(format))
 		return (-1);
-	va_start(args, format);
-	result = copy((char *)format, result);
+	va_start(args, format), result = copy((char *)format, result);
 	while (before != after || after == 0)
 	{
 		char *current_spicifyer = before_after(result, start, t, b, f, nul_c, args);
 
 		if (before != after || after == 0)
-		{
-
 			result = change_sp(result, before, after, current_spicifyer,
 							   length(current_spicifyer));
-		}
-		start = after - 1;
-		free(current_spicifyer);
+		start = after - 1, free(current_spicifyer);
 	}
 	len_res = length(result) + null_char;
-	write(1, result, len_res);
-	free(result);
+	write(1, result, len_res), free(result);
 	return (len_res);
 }
 
