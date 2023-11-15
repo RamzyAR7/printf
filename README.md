@@ -23,9 +23,11 @@ Your code should be compiled as follows:
 $ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c
 
 ### Usage
+
 Include the `main.h` header file in your C program to use the `_printf` function. It is used similarly to the standard `printf`:
 ```c
-#include "main.h"
+
+## include "main.h"
 
 int main(void) {
     _printf("Your format string", ...);
