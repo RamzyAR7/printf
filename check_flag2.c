@@ -70,7 +70,7 @@ char *flag_width(char *str, char *nums, char fuller)
 				if (i < length(str))
 					new_str[i] = str[j++];
 				else
-					new_str[i] = fuller == '.' || fuller == '-' ? '0' : fuller;
+					new_str[i] = ' ';
 			}
 		free(str);
 		return (new_str);
