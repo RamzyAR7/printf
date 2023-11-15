@@ -40,7 +40,7 @@ char *choose_flag(char *str, char *flags, char sp_letter)
 				else
 					p = flag_width(p, flags + i, ' ');
 			}
-			else if (flags[i] == '0' && flags[i - 1] == '.')
+			else if (flags[i] == '.' && (flags[i + 1] == '0' || flags[i + 1] == '\0'))
 				p[0] = '\0';
 			break;
 		}

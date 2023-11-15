@@ -40,27 +40,30 @@ char *flag_zero(char *str)
  */
 char *flag_width(char *str, char *nums, char fuller)
 {
-	int filed_width = get_nums_flag(nums);
+	int f_w = get_nums_flag(nums);
 
-	if (filed_width == 0 && str[0] == '0' && fuller == '.')
+	if (f_w == 0 && str[0] == '0' && fuller == '.')
 	{
 		str[0] = '\0';
 		return (str);
 	}
-	if (filed_width > length(str))
+	if (f_w > length(str))
 	{
-		char *new_str = malloc(filed_width + 1);
+		char *new_str = malloc(f_w + 1);
 		int j = 0, i = 0;
 
 		if (!new_str)
 			free(new_str), exit(-1);
-		if (str[j] == '-' && fuller == '0')
+		if (str[j] == '-' && (fuller == '0' || fuller == '.'))
+		{
 			new_str[i++] = str[j++];
-		for (; i < filed_width; i++)
+			if (fuller == '.')
+				f_w++;
+		}
+		for (; i < f_w; i++)
 			if (fuller != '-')
 			{
-				if (str[0] == '-' && fuller == '0' ? filed_width - i < length(str)
-												   : filed_width - i <= length(str))
+				if (ch_ng(str, fuller) ? f_w - i < length(str) : f_w - i <= length(str))
 					new_str[i] = str[j++];
 				else
 					new_str[i] = fuller == '.' || fuller == '-' ? '0' : fuller;
@@ -97,4 +100,18 @@ int get_nums_flag(char *str)
 		filed_width += str[i] - '0';
 	}
 	return (filed_width);
+}
+/**
+ * ch_ng - check for minus condition
+ *
+ * @str: The string to extract the number from
+ * @fuller: the character of fuller
+ * Return: The number
+ */
+int ch_ng(char *str, char fuller)
+{
+	if (str[0] == '-' && (fuller == '0' || fuller == '.'))
+		return (1);
+	else
+		return (0);
 }
