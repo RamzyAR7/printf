@@ -73,5 +73,5 @@ char *flag_zero(char *str);
 types *sp_struct();
 char *flag_width(char *str, char *nums, char fuller);
 int get_nums_flag(char *str);
-
+int ch_ng(char *str, char fuller);
 #endif
