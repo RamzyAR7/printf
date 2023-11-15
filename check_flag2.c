@@ -40,14 +40,8 @@ char *flag_zero(char *str)
  */
 char *flag_width(char *str, char *nums, char fuller)
 {
-	int i = 0, filed_width = 0;
+	int filed_width = get_nums_flag(nums);
 
-	for (i = 0; nums[i] >= '0' && nums[i] <= '9'; i++)
-	{
-		if (filed_width)
-			filed_width *= 10;
-		filed_width += nums[i] - '0';
-	}
 	if (filed_width == 0 && str[0] == '0' && fuller == '.')
 	{
 		str[0] = '\0';
@@ -84,3 +78,22 @@ char *flag_width(char *str, char *nums, char fuller)
 		return (str);
 }
 
+/**
+ * get_nums_flag - Extracts a number from a string
+ *
+ * @str: The string to extract the number from
+ *
+ * Return: The extracted number
+ */
+int get_nums_flag(char *str)
+{
+	int i = 0, filed_width = 0;
+
+	for (i = 0; str[i] >= '0' && str[i] <= '9'; i++)
+	{
+		if (filed_width)
+			filed_width *= 10;
+		filed_width += str[i] - '0';
+	}
+	return (filed_width);
+}
