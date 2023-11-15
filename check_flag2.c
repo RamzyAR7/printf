@@ -59,7 +59,8 @@ char *flag_width(char *str, char *nums, char fuller)
 		for (; i < filed_width; i++)
 			if (fuller != '-')
 			{
-				if (filed_width - i < length(str))
+				if (str[0] == '-' ? filed_width - i < length(str)
+								  : filed_width - i <= length(str))
 					new_str[i] = str[j++];
 				else
 					new_str[i] = fuller == '.' || fuller == '-' ? '0' : fuller;
