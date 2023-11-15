@@ -54,13 +54,13 @@ char *flag_width(char *str, char *nums, char fuller)
 
 		if (!new_str)
 			free(new_str), exit(-1);
-		if (str[j] == '-')
+		if (str[j] == '-' && fuller == '0')
 			new_str[i++] = str[j++];
 		for (; i < filed_width; i++)
 			if (fuller != '-')
 			{
-				if (str[0] == '-' ? filed_width - i < length(str)
-								  : filed_width - i <= length(str))
+				if (str[0] == '-' && fuller == '0' ? filed_width - i < length(str)
+												   : filed_width - i <= length(str))
 					new_str[i] = str[j++];
 				else
 					new_str[i] = fuller == '.' || fuller == '-' ? '0' : fuller;
