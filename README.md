@@ -1,8 +1,3 @@
-# Printf Project
-
-Certainly! Below is a revised README file formatted as a manual:
-
-```markdown
 # Printf Project Manual
 
 ## Overview
@@ -38,6 +33,7 @@ To compile your code, use the following command:
 ```bash
 $ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c
 ```
+
 
 ## Usage
 
