@@ -35,7 +35,3 @@ int main(void) {
 ## Acknowledgements
 This project is a part of the curriculum of [ALX SE]. The `_printf` function is inspired by the C standard library's `printf` function.
 
-## Developeres
-
-- [@Ahmed Ramzy](https://www.github.com/RamzyAR7)
-- [@Ashraf Atef](https://www.github.com/Ashraf-Atef1)
