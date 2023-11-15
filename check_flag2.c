@@ -30,14 +30,7 @@ char *flag_zero(char *str)
 	return (p);
 }
 
-/**
- * flag_width - Adds padding to a string based on a specified field width
- *
- * @str: The string to modify
- * @nums: The field width specifier
- * @fuller: The filler to fill gabs
- * Return: A pointer to the modified string, or NULL if memory allocation fails
- */
+
 char *flag_width(char *str, char *nums, char fuller)
 {
 	int i = 0, filed_width = 0;
@@ -56,14 +49,16 @@ char *flag_width(char *str, char *nums, char fuller)
 	if (filed_width > length(str))
 	{
 		char *new_str = malloc(filed_width + 1);
-		int j = 0;
+		int j = 0, i = 0;
 
 		if (!new_str)
 			free(new_str), exit(-1);
-		for (i = 0, j = 0; i < filed_width; i++)
+		if (str[j] == '-')
+			new_str[i++] = str[j++];
+		for (; i < filed_width; i++)
 			if (fuller != '-')
 			{
-				if (filed_width - i <= length(str))
+				if (filed_width - i < length(str))
 					new_str[i] = str[j++];
 				else
 					new_str[i] = fuller == '.' || fuller == '-' ? '0' : fuller;
@@ -81,3 +76,4 @@ char *flag_width(char *str, char *nums, char fuller)
 	else
 		return (str);
 }
+
