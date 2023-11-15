@@ -1,27 +1,39 @@
-## Project Overview
+# Printf Project
 
-This project involves creating a custom `printf` function in C. Our implementation aims to mimic the behavior of the standard `printf` function, with a focus on learning and applying C programming concepts.
+## Overview
+This repository contains a custom implementation of the `printf` function, an essential component in C programming. The `_printf` function aims to emulate the standard `printf` function's fundamental features, along with some additional functionalities.
 
-## Features
+## Project Description
+`_printf` is a versatile function that handles various format specifiers. It is designed to offer a range of functionalities from basic to advanced formatting capabilities.
 
-- Outputs data to standard output (`stdout`).
-- Handles various conversion specifiers, including:
-  - `c` for characters
-  - `s` for strings
-  - `%` for the percent sign
-  - `d` for integers (in decimal)
-  - `i` for integers
+### Features
+- **Basic Format Specifiers**: Handles characters (`c`), strings (`s`), and the percent sign (`%`).
+- **Integer Handling**: Includes support for integer specifiers (`d`, `i`).
+- **Advanced Specifiers**: Our implementation extends to more complex specifiers, which are detailed in the project tasks.
+- **Compliance**: Adheres to the Betty coding and documentation styles for C programming.
 
-## Authorized Functions and Macros
+### Requirements
+- Compiled on Ubuntu 20.04 LTS using `gcc` with flags `-Wall -Werror -Wextra -pedantic -std=gnu89`.
+- Code must follow the Betty style guide.
+- Restrictions include no global variables and a maximum of 5 functions per file.
+- Function prototypes must be declared in the header file `main.h`.
 
-- `write` (man 2 write)
-- `malloc` (man 3 malloc)
-- `free` (man 3 free)
-- `va_start`, `va_end`, `va_copy`, `va_arg` (man 3 va_*)
+### Compilation
+Your code should be compiled as follows:
+$ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c
 
-## Compilation
+### Usage
+Include the `main.h` header file in your C program to use the `_printf` function. It is used similarly to the standard `printf`:
+```c
+#include "main.h"
 
-The code is compiled with the following command:
+int main(void) {
+    _printf("Your format string", ...);
+    return 0;
+}
+
+## Acknowledgements
+This project is a part of the curriculum of [ALX SE]. The `_printf` function is inspired by the C standard library's `printf` function.
 
 ## Developeres
 
