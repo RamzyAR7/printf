@@ -33,7 +33,10 @@ char *choose_flag(char *str, char *flags, char sp_letter)
 			break;
 		default:
 			if (flags[i - 1] == '.' && sp_letter == 's')
+			{
+				p[get_nums_flag(flags + i)] = '\0';
 				continue;
+			}
 			if (flags[i] > '0' && flags[i] <= '9' &&
 				(flags[i - 1] <= '0' || flags[i - 1] > '9'))
 			{
@@ -44,7 +47,6 @@ char *choose_flag(char *str, char *flags, char sp_letter)
 			}
 			else if (flags[i] == '.' && (flags[i + 1] == '0' || flags[i + 1] == '\0'))
 				p[0] = '\0';
-			break;
 		}
 	return (p);
 }
