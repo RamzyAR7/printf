@@ -32,19 +32,18 @@ char *choose_flag(char *str, char *flags, char sp_letter)
 				p = flag_minus(p);
 			break;
 		default:
-			if (flags[i - 1] != '.' && sp_letter != 's')
+			if (flags[i - 1] == '.' && sp_letter == 's')
+				continue;
+			if (flags[i] > '0' && flags[i] <= '9' &&
+				(flags[i - 1] <= '0' || flags[i - 1] > '9'))
 			{
-				if (flags[i] > '0' && flags[i] <= '9' &&
-					(flags[i - 1] <= '0' || flags[i - 1] > '9'))
-				{
-					if (flags[i - 1] == '.' || flags[i - 1] == '0' || flags[i - 1] == '-')
-						p = flag_width(p, flags + i, flags[i - 1]);
-					else
-						p = flag_width(p, flags + i, ' ');
-				}
-				else if (flags[i] == '.' && (flags[i + 1] == '0' || flags[i + 1] == '\0'))
-					p[0] = '\0';
+				if (flags[i - 1] == '.' || flags[i - 1] == '0' || flags[i - 1] == '-')
+					p = flag_width(p, flags + i, flags[i - 1]);
+				else
+					p = flag_width(p, flags + i, ' ');
 			}
+			else if (flags[i] == '.' && (flags[i + 1] == '0' || flags[i + 1] == '\0'))
+				p[0] = '\0';
 			break;
 		}
 	return (p);
