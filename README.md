@@ -24,16 +24,7 @@ $ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c
 
 ### Usage
 
-Include the `main.h` header file in your C program to use the `_printf` function. It is used similarly to the standard `printf`:
-```c
-
-## include "main.h"
-
-int main(void) {
-    _printf("Your format string", ...);
-    return 0;
-}
-```c
+Include the `main.h` header file in your C program to use the `_printf` function. It is used similarly to the standard `printf`
 
 ## Acknowledgements
 This project is a part of the curriculum of [ALX SE]. The `_printf` function is inspired by the C standard library's `printf` function.
