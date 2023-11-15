@@ -33,6 +33,7 @@ int main(void) {
     _printf("Your format string", ...);
     return 0;
 }
+```c
 
 ## Acknowledgements
 This project is a part of the curriculum of [ALX SE]. The `_printf` function is inspired by the C standard library's `printf` function.
